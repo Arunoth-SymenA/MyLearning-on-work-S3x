@@ -14,6 +14,7 @@ const PORT = parseInt(process.env.PORT || '5000');
 const server = new ApolloServer<GraphQLContext>({
   typeDefs,
   resolvers,
+  csrfPrevention: false, // Disable CSRF protection for development
   formatError: (error) => {
     console.error('GraphQL Error:', error);
     return {
